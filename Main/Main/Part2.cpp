@@ -1,4 +1,4 @@
-#include <iostream>                     //втора€ часть
+#include <iostream>                     //Second part
 
 void func1(int &z){
     int* a = new int(z);
@@ -6,7 +6,7 @@ void func1(int &z){
 
 class cl1 {
 public:
-    cl1(const int &alpha) {                    // ласс без RAII
+    cl1(const int &alpha) {                    //No RAII class
         *a = alpha;
     }
     ~cl1() {
@@ -17,7 +17,7 @@ public:
 
 class cl2 {
 public:
-    cl2(const int &alpha) {                    // ласс с RAII
+    cl2(const int &alpha) {                    //RAII class
         *a = alpha;
     }
     ~cl2() {
@@ -32,13 +32,13 @@ int main() {
     int n = 43;
 
 
-    func1(n);                       //”течка п€м€ти из-за выхода из области видимости
+    func1(n);                       //Memory leakage
 
 
-    cl1 *a = new cl1(n);            //ѕроисходит утечка пам€ти из-за выхода из зоны видимости
+    cl1 *a = new cl1(n);            //Memory leakage
     delete a;
 
-    cl2* b = new cl2(n);            //Ќе происходит утечка пам€ти из-за выхода из зоны видимости
+    cl2* b = new cl2(n);            //No memory leakage
     delete b;
 
 

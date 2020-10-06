@@ -1,4 +1,4 @@
-#include <iostream>                     //Первая часть
+#include <iostream>                     //First part
 #include <string>
 #include <vector>
 #include <stdexcept>      
@@ -17,7 +17,7 @@ class cl1 {
 class cl2 : cl1 {
 };
 
-class MyException {                                              //пользовательское исключение
+class MyException {                                              //user exp
 
 public:
     MyException(const std::string& msg) : msg_(msg) {}
@@ -89,7 +89,7 @@ int main() {
         std::cout << "bad_alloc";
     }
 
-                                                                //пользовательское исключение
+                                                                //user exp
     try {
 
         throw (MyException("alpha"));
