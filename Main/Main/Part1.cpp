@@ -33,7 +33,7 @@ int main() {
     int n;                                                       //out_of_range
     std::string s1("alpha");
     std::string s2("beta");
-    std::cin >> n;
+    n = 6;          
       
         try {
             if (n > s2.size())
@@ -49,7 +49,7 @@ int main() {
 
 
     std::vector<int> v1;                                         //lenght_error
-    std::cin >> n;
+    n = v1.max_size() + 5;
     try {        
         v1.resize(v1.size() + n);
         if (v1.size() > v1.max_size())
@@ -81,12 +81,14 @@ int main() {
     }
                                                                //bad_alloc
     try {
-        while (true) {
-            new int[999999999999999999ul];
+        std::vector<int*> vec;
+        while (1) {
+            int* arr = new int[999999];
+            vec.push_back(arr);
         }
     }
-    catch (...) {
-        std::cout << "bad_alloc";
+    catch (std::bad_alloc ex) {
+        cerr << "bad_alloc" << ex.what() << endl;
     }
 
                                                                 //user exp
